@@ -28,6 +28,10 @@ jobs:
       - image: amazon/aws-cli
     steps:
       - checkout
+      - aws-cli/setup:
+          aws-access-key-id: AWS_CLI_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_CLI_SECRET_ACCESS_KEY
+          aws-region: AWS_REGION
       - run: yum install -y tar gzip
       - run:
           name: Fetch and save the old pipeline ID (bucket name) responsible for the last release.
@@ -44,6 +48,10 @@ jobs:
       - image: amazon/aws-cli
     steps:
       - checkout
+      - aws-cli/setup:
+          aws-access-key-id: AWS_CLI_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_CLI_SECRET_ACCESS_KEY
+          aws-region: AWS_REGION
       - run:
           name: Execute cloudfront.yml
           command: |
@@ -56,6 +64,10 @@ jobs:
       - image: amazon/aws-cli
     steps:
       - checkout
+      - aws-cli/setup:
+          aws-access-key-id: AWS_CLI_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_CLI_SECRET_ACCESS_KEY
+          aws-region: AWS_REGION
       - run: yum install -y tar gzip
       - attach_workspace:
           at: ~/
