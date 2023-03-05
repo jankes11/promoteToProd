@@ -22,7 +22,6 @@ jobs:
             --template-file bucket.yml \
             --stack-name stack-create-bucket-${CIRCLE_WORKFLOW_ID:0:7} \
             --parameter-overrides MyBucketName="mybucket-${CIRCLE_WORKFLOW_ID:0:7}"
-            --region us-west-2
   get_last_deployment_id:
     docker:
       - image: amazon/aws-cli
